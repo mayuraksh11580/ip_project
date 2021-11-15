@@ -1,0 +1,173 @@
+<html>
+	<head>
+		<title>COVID CERTIFICATE VERIFICATION</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+
+	<body class="is-preload">
+		<!-- Wrapper -->
+			<div id="wrapper">
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+							<!-- Header -->
+								<header id="header">
+									<button id="login" style="height:50px;width:10x" background-color: #f44336>login</button>
+								</header>
+
+							<!-- Banner -->
+								<section id="banner">
+									<div class="content">
+										<header>
+											<h1>COVID CERTIFICATE<br />
+											VERIFICATION</h1>
+										</header>
+										<p>This website is integrated UI to verify covid certificates of each user and user can also download or print that from here. This website can help  
+in very generous situations like before tavelling or enterring anywhere to check the certificate is orginal or not. The previous scanned document is automatically stored in firebase of each user to reuse it. This Website is made by Shourjya
+,Saurav, Rohit, Ritik of Veltech University </p>
+										
+									</div>
+									<span class="image object">
+										<img src="images/pic10.jpg" alt="" />
+									</span>
+								</section>
+
+							<!-- Section -->
+								<section>
+									<header class="major">
+										<h2>MENU</h2>
+									</header>
+									<div class="features">
+										<article>
+											<span class="icon fa-gem"></span>
+											<div class="content">
+												<h3><a href="./login.html">Certificate Scanner</a></h3>
+											</div>
+										</article>
+										<article>
+											<span class="icon solid fa-paper-plane"></span>
+											<div class="content">
+												<h3><a href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019/advice-for-public">COVID precaution</a></h3>
+											</div>
+										</article>
+										<article>
+											<span class="icon solid fa-rocket"></span>
+											<div class="content">
+												<h3><a href="https://www.mygov.in/covid-19">Covid-19 Stats</a></h3>
+											</div>
+										</article>
+									</div>
+								</section>
+
+<!-- Section -->
+								<section>
+									<header class="major">
+										<h2>Get in touch</h2>
+									</header>
+									
+									<ul class="contact">
+										<li class="icon solid fa-envelope"><a href="https://mail.google.com/mail/u/0/#inbox?compose=new">vtu11817@veltech.edu.in</a></li>
+										<li class="icon solid fa-envelope"><a href="https://mail.google.com/mail/u/0/#inbox?compose=new">vtu11921@veltech.edu.in</a></li>
+										<li class="icon solid fa-envelope"><a href="https://mail.google.com/mail/u/0/#inbox?compose=new">vtu15145@veltech.edu.in</a></li>
+										<li class="icon solid fa-envelope"><a href="https://mail.google.com/mail/u/0/#inbox?compose=new">vtu15465@veltech.edu.in</a></li>
+										<li class="icon solid fa-phone">(+91) 8102267304</li>
+										<li class="icon solid fa-home">veltech university, Avadi,Chennai, Tamil nadu<br />
+										 TN 600062</li>
+									</ul>
+								</section>    
+<div class="contact_section">
+<div class="row">
+    		<div class="col-md-12 background_bg">
+    			<div class="contact_bg">
+    				<div class="input_main">
+                       <div class="container">
+                       	<h2 class="request_text">CONTACT US</h2>
+                          <form action="/action_page.php">
+                            <div class="form-group">
+                              <input type="text" class="email-bt" placeholder="Your Name" name="Name">
+                            </div>
+                            <div class="form-group">
+                              <input type="text" class="email-bt" placeholder="Email" name="Email">
+                            </div>
+                            <div class="form-group">
+                              <input type="text" class="email-bt" placeholder="Phone" name="Email">
+                            </div>
+                            <form action="/action_page.php">
+                                <div class="form-group">
+                                  <textarea class="massage-bt" placeholder="Query" rows="12" column="20" id="comment" name="text"></textarea>
+                                </div>
+ 
+                            </form>
+                          </form>
+                       </div> 
+                    </div>
+                    <div class="send_bt"><a href="#">SEND</a></div>
+    			</div>
+    		</div>
+    		    	    </div>
+    	</div>
+    </div>
+    <!-- contact section end -->
+
+										
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+
+			<script type="module">
+				// Import the functions you need from the SDKs you need
+				import { initializeApp } from "https://www.gstatic.com/firebasejs/9.4.1/firebase-app.js";
+				import { getAuth, GoogleAuthProvider,signInWithRedirect, getRedirectResult} from "https://www.gstatic.com/firebasejs/9.4.1/firebase-auth.js";
+				// TODO: Add SDKs for Firebase products that you want to use
+				// https://firebase.google.com/docs/web/setup#available-libraries
+			  
+				// Your web app's Firebase configuration
+		const firebaseConfig = {
+            apiKey: "AIzaSyBj3e1Rl_1RHp01FaHdqspPGRcLpe1Momw",
+            authDomain: "ip-project-804bf.firebaseapp.com",
+            projectId: "ip-project-804bf",
+            storageBucket: "ip-project-804bf.appspot.com",
+            messagingSenderId: "497514786274",
+            appId: "1:497514786274:web:5c30d4312bb0a8f0f99dbb"
+  };
+
+			  
+				// Initialize Firebase
+				const app = initializeApp(firebaseConfig);
+				const auth = getAuth(app);
+				const provider = new GoogleAuthProvider(app);
+				document.getElementById("login").addEventListener('click',function(){
+					signInWithRedirect(auth, provider);
+					getRedirectResult(auth)
+				.then((result) => {
+					// This gives you a Google Access Token. You can use it to access Google APIs.
+					const credential = GoogleAuthProvider.credentialFromResult(result);
+					const token = credential.accessToken;
+	
+					// The signed-in user info.
+					const user = result.user;
+					console.log("logged in")
+				}).catch((error) => {
+					// Handle Errors here.
+					const errorCode = error.code;
+					const errorMessage = error.message;
+					// The email of the user's account used.
+					const email = error.email;
+					// The AuthCredential type that was used.
+					const credential = GoogleAuthProvider.credentialFromError(error);
+					// ...
+					console.log(errorMessage)
+				});
+	
+				})
+			  </script>
+
+
+	</body>
+</html>
